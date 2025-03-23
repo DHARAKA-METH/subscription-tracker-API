@@ -4,11 +4,5 @@ import { config } from "dotenv";
 config({ path: `.env.${process.env.NODE_ENV || "development"}.local` });
 
 // Correct way to export environment variables
-export const {
-  PORT,
-  NODE_ENV,
-  DB_URI,
-  JWT_SECRET,
-  JWT_EXPIRES_IN,
-  JWT_COOKIE_EXPIRES_IN,
-} = process.env;
+export const { PORT, NODE_ENV, DB_URI, JWT_SECRET, JWT_EXPIRES_IN } =
+  process.env;
