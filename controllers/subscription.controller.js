@@ -51,3 +51,74 @@ export const getUserSubscriptions = async (req, res, next) => {
     next(e);
   }
 };
+
+export const getAllSubscriptions = async (req, res, next) => {
+  try {
+    const subscriptions = await Subscription.find();
+    res.status(200).json({
+      success: true,
+      data: subscriptions,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getSubscriptionById = async (req, res, next) => {
+  try {
+    const subscriptionPlan = await Subscription.findById(req.params.id);
+    if (!subscriptionPlan) {
+      const error = new error("Subscription Plan not found");
+      error.statusCode = 404;
+      throw error;
+    }
+    res.status(200).json({
+      success: true,
+      data: subscriptionPlan,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const cancelSubscription = async (req, res, next) => {
+  try {
+    const cancelPlan = await Subscription.findByIdAndUpdate(req.params.id, {
+      data: { status: "inactive" },
+    });
+
+    if (!cancelPlan) {
+      const error = new error("Subscription Plan not found");
+      error.statusCode = 404;
+      throw error;
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Subscription plan canceled successfully",
+      data: cancelPlan,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const deleteSubscription = async (req, res, next) => {
+  try {
+    const deletelPlan = await Subscription.findByIdAndDelete(req.params.id);
+
+    if (!deletelPlan) {
+      const error = new error("Subscription Plan not found");
+      error.statusCode = 404;
+      throw error;
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Subscription paln deleted successfully",
+      data: deletelPlan,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
