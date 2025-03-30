@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "../config/env.js";
 import User from "../models/user.model.js";
+import tokenBlacklist from "../models/tokenBlackList.model.js";
 
 const authorize = async (req, res, next) => {
   try {
@@ -13,6 +14,13 @@ const authorize = async (req, res, next) => {
     }
     if (!token) {
       res.status(401).json({ message: "Unauthorized no token" });
+    }
+
+    const blacklistedToken = await tokenBlacklist.findOne({ token });
+    if (blacklistedToken) {
+      return res
+        .status(401)
+        .json({ message: "Token is invalid. Please log in again." });
     }
 
     const decoded = jwt.verify(token, JWT_SECRET);

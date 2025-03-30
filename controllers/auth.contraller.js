@@ -3,6 +3,7 @@ import User from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import { JWT_EXPIRES_IN, JWT_SECRET } from "../config/env.js";
+import tokenBlacklist from "../models/tokenBlackList.model.js";
 
 export const signUp = async (req, res, next) => {
   const session = await mongoose.startSession();
@@ -86,4 +87,23 @@ export const signIn = async (req, res, next) => {
     next(error);
   }
 };
-export const signOut = (req, res) => {};
+export const signOut = async (req, res, next) => {
+  try {
+    const token = req.headers.authorization?.split(" ")[1]; // Extract JWT
+
+    if (!token) {
+      return res
+        .status(400)
+        .json({ success: false, message: "No token provided" });
+    }
+
+    // Optional: Blacklist the token (save it in the database)
+    await tokenBlacklist.create({ token });
+
+    res
+      .status(200)
+      .json({ success: true, message: "User signed out successfully" });
+  } catch (error) {
+    next(error);
+  }
+};

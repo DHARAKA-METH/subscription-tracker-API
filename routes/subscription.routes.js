@@ -21,7 +21,7 @@ subscriptionRouter.put("/:id", (req, res) =>
   res.send({ title: "Update Subscription not yet implemented" })
 );
 
-subscriptionRouter.delete("/:id/delete", authorize, deleteSubscription);//cancel by subscription plan id authorize by sign in user
+subscriptionRouter.delete("/:id/delete", authorize, deleteSubscription); //cancel by subscription plan id authorize by sign in user
 
 subscriptionRouter.get("/user/:id", authorize, getUserSubscriptions); // get user subscriptions for specific user
 
