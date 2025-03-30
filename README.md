@@ -22,8 +22,8 @@ The project uses the following technologies:
 
 This project integrates or uses the following third-party services:
 
-- **Arcjet**: Advanced Rate Limiting and Bot Protection: with Arcjet that helps you secure the whole app. [arcjet.com](https://launch.arcjet.com/4g2R2e4).
-- **Upstash**: Automating smart email reminders with workflows using Upstash. [Upstash.com](https://bit.ly/42ealiN)
+- **Arcjet**: Advanced Rate Limiting and Bot Protection: with Arcjet that helps you secure the whole app. [arcjet.com](https://arcjet.com/).
+- **Upstash**: Automating smart email reminders with workflows using Upstash. [Upstash.com](https://upstash.com/)
 
 
 ---
@@ -152,9 +152,8 @@ npm run dev
 
 ## Special Thanks 
 
-A special thanks to the [JavaScript Mastery Backend Course]([https://www.youtube.com/watch?v=1Rs2ND1X5QU](https://youtu.be/rOpEN1JDaD0?si=u8BmlYOQiddaWmQg)) for providing the foundation and valuable insights into building backend applications using Node.js, Express, and other technologies.
+A special thanks to the [JavaScript Mastery Backend Course](https://youtu.be/rOpEN1JDaD0?si=u8BmlYOQiddaWmQg) for providing the foundation and valuable insights into building backend applications using Node.js, Express, and other technologies.
 
-This course helped in shaping the core structure of this project and provided essential knowledge to integrate different components like authentication, database management, and API development.
 
 
 
