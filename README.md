@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Build a production-ready **Subscription Management System API** that handles real users, real money, and real business logic.
+ **Subscription Management System API** that handles real users, real money, and real business logic.
 
 This API will authenticate users using **JWTs**, connect to a **MongoDB** database, and include models and schemas integrated with **ORMs**. The architecture will be structured to ensure **scalability** and **seamless communication** with the front end.
 
