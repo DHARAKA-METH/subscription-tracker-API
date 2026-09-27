@@ -28,6 +28,45 @@ This project integrates or uses the following third-party services:
 
 ---
 
+
+## API Endpoints
+
+Paths are relative to each router. Add the corresponding route prefix configured in `app.js`.
+
+### Authentication
+
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/sign-up` | Register a student or company account. |
+| POST | `/sign-in` | Sign in and receive a JWT. |
+| POST | `/sign-out` | Sign out. |
+
+### Applications
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/` | Retrieve applications based on the user's role. |
+| GET | `/company` | Retrieve applications for the signed-in company's job postings. |
+| GET | `/student` | Retrieve applications submitted by the signed-in student. |
+| PATCH | `/company/:id` | Update an application's status after verifying company ownership. |
+| GET | `/company/:applicationID` | Retrieve an individual application's details. |
+
+### Company Profile
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/profile` | Retrieve the company profile. |
+| PATCH | `/update-profile` | Update company profile details. |
+
+### Student Profile
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/profile` | Retrieve the signed-in student's profile. |
+| PATCH | `/update-profile` | Update student profile details. |
+
+
+
 ## Project Structure
 
 ```
